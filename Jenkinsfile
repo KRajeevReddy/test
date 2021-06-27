@@ -9,7 +9,7 @@ pipeline {
           }
         }
 
-        stage('') {
+        stage('say hello') {
           steps {
             sh 'echo \'hello world\''
           }
