@@ -11,8 +11,8 @@ pipeline {
 
     stage('create container') {
       steps {
-		SUCCESS_BUILD= sh 'wget -qO- http://localhost:8080/job/DockerTest/lastSuccessfulBuild/buildNumber'
-		echo SUCCESS_BUILD
+		def SUCCESS_BUILD= sh 'wget -qO- http://localhost:8080/job/DockerTest/lastSuccessfulBuild/buildNumber'
+		echo ${SUCCESS_BUILD}
 		echo 'removing old container'
 		sh 'docker stop httpd:${SUCCESS_BUILD}'
 		echo '-----'
