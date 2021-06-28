@@ -1,23 +1,34 @@
 pipeline {
-	agent any
+  agent any
+  stages {
+    stage('Build') {
+      parallel {
+        stage('Build') {
+          steps {
+            echo 'Building..'
+          }
+        }
 
-		stages {
-			stage('Build') {
-				steps {
-					echo 'Building..'
-				}
-			}
-			stage('Test') {
-				steps {
-					echo 'Testing..'
-				}
-			}
-			stage('Deploy') {
-				steps {
-					echo 'Deploying....'
-				}
-			}
-		}
+        stage('say hello') {
+          steps {
+            sh 'echo \'hello world\''
+          }
+        }
 
+      }
+    }
+
+    stage('Test') {
+      steps {
+        echo 'Testing..'
+      }
+    }
+
+    stage('Deploy') {
+      steps {
+        echo 'Deploying....'
+      }
+    }
+
+  }
 }
-
