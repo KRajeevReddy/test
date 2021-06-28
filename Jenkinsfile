@@ -17,7 +17,7 @@ pipeline {
 		sh 'docker stop httpd:${SUCCESS_BUILD}'
 		echo '-----'
 		echo 'staring new container'
-        sh 'docker run -d -p 8082:80 httpd:${BUILD_NUMBER}
+        sh 'docker run -d -p 8082:80 httpd:${BUILD_NUMBER}'
       }
     }
 
